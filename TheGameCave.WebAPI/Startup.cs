@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using TheGameCave.WebAPI.Data;
+using TheGameCave.WebAPI.Repositories;
 
 namespace TheGameCave.WebAPI
 {
@@ -29,6 +30,11 @@ namespace TheGameCave.WebAPI
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddDbContext<TheGameCaveContext>(options => options.UseSqlServer(Configuration.GetConnectionString("TheGameCave")));
+            
+            services.AddScoped<ProductRepository>();
+            services.AddScoped<CategoryRepository>();
+            services.AddScoped<PublisherRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
