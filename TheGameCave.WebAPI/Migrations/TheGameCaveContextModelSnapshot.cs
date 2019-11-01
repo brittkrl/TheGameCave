@@ -246,7 +246,7 @@ namespace TheGameCave.WebAPI.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("TheGameCave.WebAPI.Models.Publisher", "Publisher")
-                        .WithMany("Products")
+                        .WithMany()
                         .HasForeignKey("PublisherId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

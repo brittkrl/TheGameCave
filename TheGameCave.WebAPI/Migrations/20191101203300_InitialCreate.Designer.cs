@@ -9,7 +9,7 @@ using TheGameCave.WebAPI.Data;
 namespace TheGameCave.WebAPI.Migrations
 {
     [DbContext(typeof(TheGameCaveContext))]
-    [Migration("20191031143913_InitialCreate")]
+    [Migration("20191101203300_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -248,7 +248,7 @@ namespace TheGameCave.WebAPI.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("TheGameCave.WebAPI.Models.Publisher", "Publisher")
-                        .WithMany("Products")
+                        .WithMany()
                         .HasForeignKey("PublisherId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
