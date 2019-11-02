@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using TheGameCave.WebAPI.Data;
 using TheGameCave.WebAPI.Models;
 
-namespace TheGameCave.WebAPI.Repositories
+namespace TheGameCave.WebAPI.Repositories.Base
 {
     public class RepositoryBase<T> : IRepository<T> where T : EntityBase
     {

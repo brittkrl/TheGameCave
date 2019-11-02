@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using TheGameCave.WebAPI.Models;
 
-namespace TheGameCave.WebAPI.Repositories
+namespace TheGameCave.WebAPI.Repositories.Base
 {
     public interface IRepository<T> where T : EntityBase
     {

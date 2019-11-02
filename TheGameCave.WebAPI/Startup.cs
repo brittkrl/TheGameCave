@@ -13,6 +13,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using TheGameCave.WebAPI.Data;
 using TheGameCave.WebAPI.Repositories;
+using TheGameCave.WebAPI.Services.AutoMapper;
 
 namespace TheGameCave.WebAPI
 {
@@ -34,6 +35,14 @@ namespace TheGameCave.WebAPI
             services.AddScoped<ProductRepository>();
             services.AddScoped<CategoryRepository>();
             services.AddScoped<PublisherRepository>();
+
+            var config = new AutoMapper.MapperConfiguration(
+                cfg => {
+                    cfg.AddProfile(new AutoMapperProfileConfiguration());
+                });
+
+            var mapper = config.CreateMapper();
+            services.AddSingleton(mapper);
 
         }
 

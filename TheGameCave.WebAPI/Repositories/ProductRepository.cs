@@ -1,16 +1,20 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TheGameCave.WebAPI.Data;
+using TheGameCave.WebAPI.DTO;
 using TheGameCave.WebAPI.Models;
+using TheGameCave.WebAPI.Repositories.Base;
 
 namespace TheGameCave.WebAPI.Repositories
 {
-    public class ProductRepository : RepositoryBase<Product>
+    public class ProductRepository : RepositoryMapping<Product>
     {
-        public ProductRepository(TheGameCaveContext context) : base(context)
+        public ProductRepository(TheGameCaveContext context, IMapper mapper) : base(context, mapper)
         {
         }
 
@@ -22,9 +26,20 @@ namespace TheGameCave.WebAPI.Repositories
                 .ToListAsync();
         }
 
-        public async Task<Product> GetDetailById(int id)
+        public async Task<List<ProductBasicDto>> ListBasic()
         {
-            return await _context.Products.FirstOrDefaultAsync(p => p.Id == id);
+            return await _context.Products
+                .ProjectTo<ProductBasicDto>(_mapper.ConfigurationProvider)
+                .ToListAsync();
+        }
+
+        public async Task<ProductDetail> GetDetailById(int id)
+        {
+            return _mapper.Map<ProductDetail>(
+                await _context.Products
+                .Include(p => p.Category)
+                .Include(p => p.Publisher)
+                .FirstOrDefaultAsync(b => b.Id == id));
         }
     }
 }

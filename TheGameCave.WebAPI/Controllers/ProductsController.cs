@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TheGameCave.WebAPI.Models;
@@ -13,8 +15,10 @@ namespace TheGameCave.WebAPI.Controllers
     [ApiController]
     public class ProductsController : ControllerCrudBase<Product, ProductRepository>
     {
-        public ProductsController(ProductRepository productRepository) : base(productRepository)
+        private readonly IHostingEnvironment _hostingEnvironment;
+        public ProductsController(ProductRepository productRepository, IHostingEnvironment hostingEnvironment) : base(productRepository)
         {
+            _hostingEnvironment = hostingEnvironment;
         }
 
         [HttpGet]
@@ -24,10 +28,35 @@ namespace TheGameCave.WebAPI.Controllers
         }
 
         [HttpGet]
-        [Route("{id}")]
-        public async Task<IActionResult> GetProductById(int id)
+        [Route("Detail/{id}")]
+        public async Task<IActionResult> GetProductDetail(int id)
         {
-            return Ok(await repository.GetById(id));
+            return Ok(await repository.GetDetailById(id));
+        }
+
+        [HttpGet]
+        [Route("Basic")]
+        public async Task<IActionResult> GetProductsBasic()
+        {
+            return Ok(await repository.ListBasic());
+        }
+
+        [HttpPost]
+        [Route("Image")]
+        public async Task<IActionResult> Image(IFormFile formFile)
+        {
+            var filePath = Path.Combine(_hostingEnvironment.WebRootPath, "images", formFile.FileName);
+
+            if (formFile.Length > 0)
+            {
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await formFile.CopyToAsync(stream);
+                }
+            }
+
+            return Ok(new { count = 1, formFile.Length });
+
         }
     }
 }
