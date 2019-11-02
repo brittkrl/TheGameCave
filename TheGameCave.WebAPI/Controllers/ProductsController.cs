@@ -4,32 +4,30 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using TheGameCave.WebAPI.Models;
 using TheGameCave.WebAPI.Repositories;
 
 namespace TheGameCave.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductsController : ControllerBase
+    public class ProductsController : ControllerCrudBase<Product, ProductRepository>
     {
-        ProductRepository _productRepository;
-
-        public ProductsController(ProductRepository productRepository)
+        public ProductsController(ProductRepository productRepository) : base(productRepository)
         {
-            _productRepository = productRepository;
         }
 
         [HttpGet]
-        public IActionResult GetProducts()
+        public override async Task<IActionResult> Get()
         {
-            return Ok(_productRepository.List());
+            return Ok(await repository.GetAllInclusive());
         }
 
         [HttpGet]
         [Route("{id}")]
         public async Task<IActionResult> GetProductById(int id)
         {
-            return Ok(_productRepository.GetById(id));
+            return Ok(await repository.GetById(id));
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,23 +8,23 @@ using TheGameCave.WebAPI.Models;
 
 namespace TheGameCave.WebAPI.Repositories
 {
-    public class ProductRepository
+    public class ProductRepository : RepositoryBase<Product>
     {
-        private TheGameCaveContext _context;
-
-        public ProductRepository(TheGameCaveContext context)
+        public ProductRepository(TheGameCaveContext context) : base(context)
         {
-            _context = context;
         }
 
-        public List<Product> List()
+        public async Task<List<Product>> GetAllInclusive()
         {
-            return _context.Products.ToList();
+            return await GetAll()
+                .Include(p => p.Category)
+                .Include(p => p.Publisher)
+                .ToListAsync();
         }
 
-        public Product GetById(int id)
+        public async Task<Product> GetDetailById(int id)
         {
-            return _context.Products.Find(id);
+            return await _context.Products.FirstOrDefaultAsync(p => p.Id == id);
         }
     }
 }

@@ -7,23 +7,10 @@ using TheGameCave.WebAPI.Models;
 
 namespace TheGameCave.WebAPI.Repositories
 {
-    public class CategoryRepository
+    public class CategoryRepository : RepositoryBase<Category>
     {
-        private TheGameCaveContext _context;
-
-        public CategoryRepository(TheGameCaveContext context)
+        public CategoryRepository(TheGameCaveContext context) : base(context)
         {
-            _context = context;
-        }
-
-        public List<Category> List()
-        {
-            return _context.Categories.ToList();
-        }
-
-        public Category GetById(int id)
-        {
-            return _context.Categories.Find(id);
         }
     }
 }
