@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheGameCave.WebAPI", "TheGa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheGameCave.Lib", "TheGameCave.Lib\TheGameCave.Lib.csproj", "{CC461F5F-297B-4155-8B11-1E27841EC218}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheGameCave.MVC", "TheGameCave.MVC\TheGameCave.MVC.csproj", "{7E9AEB02-55C1-4F4A-9F48-6CCFD117E43C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{CC461F5F-297B-4155-8B11-1E27841EC218}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC461F5F-297B-4155-8B11-1E27841EC218}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC461F5F-297B-4155-8B11-1E27841EC218}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E9AEB02-55C1-4F4A-9F48-6CCFD117E43C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E9AEB02-55C1-4F4A-9F48-6CCFD117E43C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E9AEB02-55C1-4F4A-9F48-6CCFD117E43C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E9AEB02-55C1-4F4A-9F48-6CCFD117E43C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

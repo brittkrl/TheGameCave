@@ -30,6 +30,7 @@ namespace TheGameCave.WebAPI.Repositories
         {
             return await _context.Products
                 .ProjectTo<ProductBasicDto>(_mapper.ConfigurationProvider)
+                .OrderBy(p => p.Name)
                 .ToListAsync();
         }
 
