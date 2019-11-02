@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TheGameCave.WebAPI.Models
+namespace TheGameCave.Lib.Models
 {
     public class EntityBase
     {

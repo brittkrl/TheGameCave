@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using TheGameCave.WebAPI.Models;
+using TheGameCave.Lib.Models;
 using TheGameCave.WebAPI.Repositories;
 
 namespace TheGameCave.WebAPI.Controllers

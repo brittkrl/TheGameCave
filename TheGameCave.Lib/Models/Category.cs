@@ -4,9 +4,8 @@ using System.Text;
 
 namespace TheGameCave.Lib.Models
 {
-    public class Category
+    public class Category : EntityBase
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public ICollection<Product> Products { get; set; }
     }

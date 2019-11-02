@@ -1,24 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace TheGameCave.WebAPI.Models
+namespace TheGameCave.Lib.Models
 {
-    public class Product : EntityBase
+    public class ProductDetail
     {
+        public int Id { get; set; }
         public string Name { get; set; }
-
         public string Description { get; set; }
-
         public decimal Price { get; set; }
-
-        [MaxLength(250)]
         public string PhotoUrl { get; set; }
 
         [Display(Name = "Type")]
-        public ProductType ProductType { get; set; }
+        public string ProductType { get; set; }
 
         [Display(Name = "Playing time")]
         public string PlayingTime { get; set; }
@@ -28,15 +25,10 @@ namespace TheGameCave.WebAPI.Models
 
         [Display(Name = "Minimum age")]
         public int MinimumAge { get; set; }
-
-        public Language Language { get; set; }
-
+        public string Language { get; set; }
         public int CategoryId { get; set; }
-
-        public Category Category { get; set; }
-
+        public string CategoryName { get; set; }
         public int PublisherId { get; set; }
-
-        public Publisher Publisher { get; set; }
+        public string PublisherName { get; set; }
     }
 }

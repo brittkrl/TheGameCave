@@ -3,8 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TheGameCave.WebAPI.DTO;
-using TheGameCave.WebAPI.Models;
+using TheGameCave.Lib.DTO;
+using TheGameCave.Lib.Models;
 
 namespace TheGameCave.WebAPI.Services.AutoMapper
 {

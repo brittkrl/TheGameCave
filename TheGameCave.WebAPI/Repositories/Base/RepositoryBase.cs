@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using TheGameCave.Lib.Models;
 using TheGameCave.WebAPI.Data;
-using TheGameCave.WebAPI.Models;
 
 namespace TheGameCave.WebAPI.Repositories.Base
 {
