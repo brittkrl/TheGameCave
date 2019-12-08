@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace TheGameCave.WebAPI
+namespace TheGameCave.MVC
 {
     public class Program
     {
@@ -19,7 +19,6 @@ namespace TheGameCave.WebAPI
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .UseUrls("https://*:4200");
+                .UseStartup<Startup>();
     }
 }
