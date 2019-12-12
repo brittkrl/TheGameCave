@@ -41,6 +41,22 @@ namespace TheGameCave.WebAPI.Controllers
             return Ok(await repository.ListBasic());
         }
 
+        [HttpGet]
+        [Route("GameImageByName/{filename}")]
+        public IActionResult GetGameImageByFileName(string filename)
+        {
+            var pathOfImage = Path.Combine(_hostingEnvironment.WebRootPath, "images", filename);
+            return PhysicalFile(pathOfImage, "image/jpeg");
+        }
+
+        [HttpGet]
+        [Route("ImageByName/{filename}")]
+        public IActionResult GetImageByFileName(string filename)
+        {
+            var pathOfImage = Path.Combine(_hostingEnvironment.WebRootPath, "images/icons", filename);
+            return PhysicalFile(pathOfImage, "image/png");
+        }
+
         [HttpPost]
         [Route("Image")]
         public async Task<IActionResult> Image(IFormFile formFile)
