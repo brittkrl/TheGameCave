@@ -1,0 +1,25 @@
+﻿@using TheGameCave.Lib.DTO
+@model List<ProductBasicDto>
+
+<h1>Dice games</h1>
+<div class="productblock container">
+    <div class="products row justify-content-center">
+        @foreach (var product in Model)
+        {
+            if (product.CategoryName == "Dice")
+            {
+                <div class="card col-md-3 md-auto">
+                    <img src="https://localhost:5001/api/products/GameImageByName/@product.PhotoUrl" class="card-img-top" alt="Product image">
+                    <div class="card-body row justify-content-center align-items-start">
+                        <h5 class="card-title text-center">@product.Name</h5>
+                    </div>
+                    <div class="card-body row justify-content-center align-items-center">
+                        <h5 class="card-price">€ @product.Price</h5>
+                        <a asp-area="" asp-controller="Products" asp-action="Detail" asp-route-id="@product.Id" class="btn btn-outline-dark btn-card">INFO</a>
+                        <a href="#" class="btn btn-dark btn-card">BUY</a>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
