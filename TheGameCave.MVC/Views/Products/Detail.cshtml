@@ -1,28 +1,8 @@
 ﻿@model TheGameCave.MVC.ViewModels.ProductDetailViewModel
 
-@*<h1>Details</h1>
-<div class="panel panel-default">
-    <div class="panel-heading">@Model.ProductDetail.Name</div>
-    <div class="panel-body">
-        <ul>
-            <li><small>@Model.ProductDetail.PlayingTime</small></li>
-        </ul>
-        <img src="https://localhost:5001/api/products/imagebyname/@Model.ProductDetail.PhotoUrl" alt="Image of the product" />
-        <p>
-            Summary: <br />
-            <small><i>@Model.ProductDetail.Description</i></small>
-        </p>
-        <p><i>&copy; @Model.ProductDetail.PublisherName</i></p>
-    </div>
-    <div class="panel-footer">
-        <a asp-controller="Products" asp-action="Index" class="btn btn-primary">Back to list</a>
-    </div>
-</div>*@
-
-
 <div class="row justify-content-center">
     <div class="col-md-4">
-        <img src="https://localhost:5001/api/products/imagebyname/@Model.ProductDetail.PhotoUrl" alt="Image of the product" width="400"/>
+        <img src="https://localhost:5001/api/products/gameimagebyname/@Model.ProductDetail.PhotoUrl" alt="Image of the product" width="400"/>
     </div>
     <div class="col-md-7">
         <h1>@Model.ProductDetail.Name</h1>

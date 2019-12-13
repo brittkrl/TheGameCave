@@ -37,6 +37,20 @@ namespace TheGameCave.MVC.Controllers
             return View(GetApiResult<List<ProductBasicDto>>(productUri));
         }
 
+        public IActionResult CardGames()
+        {
+            string productUri = $"{baseUri}/basic";
+
+            return View(GetApiResult<List<ProductBasicDto>>(productUri));
+        }
+
+        public IActionResult DiceGames()
+        {
+            string productUri = $"{baseUri}/basic";
+
+            return View(GetApiResult<List<ProductBasicDto>>(productUri));
+        }
+
         private T GetApiResult<T>(string uri)
         {
             using (var httpClient = new HttpClient())

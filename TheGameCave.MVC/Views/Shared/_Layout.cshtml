@@ -38,7 +38,7 @@
             </nav>
         </header>*@
     <header id="header">
-        <img src="https://localhost:5001/api/products/imagebyname/headerimg.png" alt="Header" id="headerimg"/>
+        <img src="https://localhost:5001/api/products/imagebyname/headerimg.png" alt="Header" id="headerimg" />
         <nav class="navbar navbar-dark navbar-expand-lg">
             <a class="navbar-brand" href="#"><img src="https://localhost:5001/api/products/imagebyname/logo.png" id="headerlogo" alt="Logo" width="250" style="position:absolute; top:-60px; z-index: 1;"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -67,11 +67,13 @@
     <div class="container">
         <partial name="_CookieConsentPartial" />
         @*<main role="main" class="pb-3">
-        </main>*@
-            @RenderBody()
+            </main>*@
+        @RenderBody()
     </div>
 
-    <partial name="_PublicFooter"/>
+    <a href="#" id="scrollButton"><img src="https://localhost:5001/api/products/imagebyname/up-chevron-button.png" alt="" /></a>
+
+    <partial name="_PublicFooter" />
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
