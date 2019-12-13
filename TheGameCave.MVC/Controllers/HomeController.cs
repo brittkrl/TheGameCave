@@ -2,17 +2,24 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using TheGameCave.Lib.DTO;
 using TheGameCave.MVC.Models;
 
 namespace TheGameCave.MVC.Controllers
 {
     public class HomeController : Controller
     {
+        string baseUri = "https://localhost:5001/api/products";
+
         public IActionResult Index()
         {
-            return View();
+            string productUri = $"{baseUri}/basic";
+
+            return View(GetApiResult<List<ProductBasicDto>>(productUri));
         }
 
         public IActionResult Privacy()
@@ -24,6 +31,17 @@ namespace TheGameCave.MVC.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        private T GetApiResult<T>(string uri)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                var response = httpClient.GetStringAsync(uri);
+                return Task.Factory.StartNew(
+                    () => JsonConvert.DeserializeObject<T>(response.Result)
+                    ).Result;
+            }
         }
     }
 }
