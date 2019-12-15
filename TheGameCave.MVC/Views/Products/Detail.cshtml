@@ -1,8 +1,18 @@
 ﻿@model TheGameCave.MVC.ViewModels.ProductDetailViewModel
 
+<a href="javascript: history.go(-1)" class="btn btn-dark btn-lg btn-back align-self-end">
+    <i class="fas fa-arrow-alt-circle-left"></i> Go Back
+</a>
+
 <div class="row justify-content-center">
     <div class="col-md-4">
-        <img src="https://localhost:5001/api/products/gameimagebyname/@Model.ProductDetail.PhotoUrl" alt="Image of the product" width="400"/>
+        <img src="https://localhost:5001/api/products/gameimagebyname/@Model.ProductDetail.PhotoUrl" alt="Image of the product" width="400" /><br />
+        <a href="#" class="btn btn-dark btn-lg">
+            <i class="fas fa-shopping-cart"></i>   Add To Cart
+        </a>
+        <a href="javascript: history.go(-1)" class="btn btn-dark btn-lg">
+            <i class="fas fa-shopping-basket"></i> Continue Shopping
+        </a>
     </div>
     <div class="col-md-7">
         <h1>@Model.ProductDetail.Name</h1>

@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TheGameCave.Lib\TheGameCave.Lib.csproj" />
+    <ProjectReference Include="..\TheGameCave.WebAPI\TheGameCave.WebAPI.csproj" />
   </ItemGroup>
 
 </Project>

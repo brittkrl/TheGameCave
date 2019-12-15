@@ -116,11 +116,15 @@ body {
 }
 
 #scrollButton {
+    color: #696969;
     position: fixed;
     right: 15px;
     bottom: 32px;
     z-index: 1;
 }
+    #scrollButton:hover {
+        color: #545454;
+    }
 
 #highlights {
     height: 325px;
@@ -288,6 +292,14 @@ body {
 
 .btn-card{
     margin-left: 10px;
+}
+
+.btn-back {
+    position: absolute;
+    right: 10px;
+    background-color: #696969;
+    border-color: #696969;
+    z-index: 1;
 }
 
 .card-price {
