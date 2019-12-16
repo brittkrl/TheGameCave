@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TheGameCave.WebAPI.Data;
 
 namespace TheGameCave.WebAPI.Migrations
 {
     [DbContext(typeof(TheGameCaveContext))]
-    partial class TheGameCaveContextModelSnapshot : ModelSnapshot
+    [Migration("20191216164134_SeedNewData")]
+    partial class SeedNewData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -534,8 +536,8 @@ namespace TheGameCave.WebAPI.Migrations
                             Language = 0,
                             MinimumAge = 6,
                             Name = "Bandido",
-                            NumberOfPlayers = "1-4",
-                            PhotoUrl = "bandido.jpg",
+                            NumberOfPlayers = "",
+                            PhotoUrl = "",
                             PlayingTime = "60",
                             Price = 10.95m,
                             ProductType = 1,
