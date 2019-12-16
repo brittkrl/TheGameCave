@@ -122,6 +122,7 @@ body {
     bottom: 32px;
     z-index: 1;
 }
+
     #scrollButton:hover {
         color: #545454;
     }
@@ -290,7 +291,7 @@ body {
             box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.5);
         }
 
-.btn-card{
+.btn-card {
     margin-left: 10px;
 }
 

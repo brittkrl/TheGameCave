@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
-    <UserSecretsId>aspnet-TheGameCave.MVC-CD5961F2-6597-4B3A-B91D-6C7A047EDC76</UserSecretsId>
+    <UserSecretsId>aspnet-TheGameCave.MVC-F5936FC6-FDF1-4BD3-A956-08EBB3F8B546</UserSecretsId>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
   </PropertyGroup>
 
@@ -11,13 +11,11 @@
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.4" />
-    <PackageReference Include="Sendgrid" Version="9.12.0" />
   </ItemGroup>
 
 
   <ItemGroup>
     <ProjectReference Include="..\TheGameCave.Lib\TheGameCave.Lib.csproj" />
-    <ProjectReference Include="..\TheGameCave.WebAPI\TheGameCave.WebAPI.csproj" />
   </ItemGroup>
 
 </Project>
