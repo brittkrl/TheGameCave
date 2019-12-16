@@ -20,7 +20,7 @@
                     <div class="card-body row justify-content-center align-items-center">
                         <h5 class="card-price">€ @product.Price</h5>
                         <a asp-area="" asp-controller="Products" asp-action="Detail" asp-route-id="@product.Id" class="btn btn-outline-dark btn-card">INFO</a>
-                        <a href="#" class="btn btn-dark btn-card">BUY</a>
+                        <a asp-area="" asp-controller="ShoppingCart" asp-action="Index" asp-route-id="@product.Id" class="btn btn-dark btn-card">BUY</a>
                     </div>
                 </div>
             }
