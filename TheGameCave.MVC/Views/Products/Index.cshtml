@@ -1,7 +1,4 @@
-﻿@using TheGameCave.Lib.DTO
-@model List<ProductBasicDto>
-
-<partial name="_BackButton" />
+﻿<partial name="_BackButton" />
 
 <div id="app" class="productblock container">
     <div class="input-group mb-2">
@@ -30,43 +27,5 @@
 
 @section scripts{
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script>
-        var ApiUri = "https://localhost:5001/api/";
-
-        var app = new Vue({
-            el: '#app',
-            data: {
-                title: 'All Games',
-                search: '',
-                products: null
-            },
-            created: function () {
-                var self = this;
-                self.fetchProducts();
-            },
-            methods: {
-                fetchProducts: function () {
-                    self = this;
-                    fetch(`${ApiUri}products/basic`)
-                        .then(res => res.json())
-                        .then(function (products) {
-                            self.products = products;
-                        })
-                        .catch(err => console.error('Fout: ' + err));
-                },
-            },
-            computed: {
-                filteredProducts: function () {
-                    if (this.search) {
-                        return this.products.filter((product) => {
-                            return product.name.toLowerCase().match(this.search.toLowerCase())
-                        });
-                    }
-                    else {
-                        return this.products;
-                    }
-                }
-            }
-        });
-    </script>
+    <script src="~/js/products.js"></script>
 }

@@ -1,29 +1,31 @@
-﻿@using TheGameCave.Lib.DTO
-@model List<ProductBasicDto>
+﻿<partial name="_BackButton" />
 
-<a href="javascript: history.go(-1)" class="btn btn-dark btn-lg btn-back align-self-end">
-    <i class="fas fa-arrow-alt-circle-left"></i> Go Back
-</a>
-
-<h1>Card games</h1>
-<div class="productblock container">
+<div id="app" class="productblock container">
+    <div class="input-group mb-2">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"><img src="https://localhost:5001/api/products/imagebyname/search.png" /></span>
+        </div>
+        <input type="text" v-model="search" class="form-control" placeholder="Search">
+    </div>
+    <h1>Card games</h1>
     <div class="products row justify-content-center">
-        @foreach (var product in Model)
-        {
-            if (product.ProductType == "CardGame" && product.CategoryName != "Dice")
-            {
-                <div class="card col-md-3 md-auto">
-                    <img src="https://localhost:5001/api/products/GameImageByName/@product.PhotoUrl" class="card-img-top" alt="Product image">
-                    <div class="card-body row justify-content-center align-items-start">
-                        <h5 class="card-title text-center">@product.Name</h5>
-                    </div>
-                    <div class="card-body row justify-content-center align-items-center">
-                        <h5 class="card-price">€ @product.Price</h5>
-                        <a asp-area="" asp-controller="Products" asp-action="Detail" asp-route-id="@product.Id" class="btn btn-outline-dark btn-card">INFO</a>
-                        <a asp-area="" asp-controller="ShoppingCart" asp-action="Index" asp-route-id="@product.Id" class="btn btn-dark btn-card">BUY</a>
-                    </div>
-                </div>
-            }
-        }
+
+        <div v-for="product in filteredProducts" v-if="product.productType == 'CardGame' && product.categoryName != 'Dice'" class="card col-md-3 md-auto">
+            <img class="card-img-top" v-bind:src="'https://localhost:5001/api/products/GameImageByName/' + product.photoUrl">
+
+            <div class="card-body row justify-content-center align-items-start">
+                <h5 class="card-title text-center">{{product.name}}</h5>
+            </div>
+            <div class="card-body row justify-content-center align-items-center">
+                <h5 class="card-price">€ {{product.price}}</h5>
+                <a v-bind:href="'/Products/Detail/' + product.id" class="btn btn-outline-dark btn-card">INFO</a>
+                <a asp-area="" asp-controller="ShoppingCart" asp-action="Index" asp-route-id="{{product.id}}" class="btn btn-dark btn-card">BUY</a>
+            </div>
+        </div>
     </div>
 </div>
+
+@section scripts{
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="~/js/products.js"></script>
+}

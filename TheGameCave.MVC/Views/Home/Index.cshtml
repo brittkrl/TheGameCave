@@ -29,24 +29,24 @@
 
 <div class="productlabel">NEW RELEASES</div>
 
-<div class="productblock container">
+<div id="app" class="productblock container">
     <div class="products row justify-content-center">
-        @foreach (var product in Model)
-        {
-            if (product.Id == 40 || product.Id == 45 || product.Id == 46)
-            {
-                <div class="card col-md-3 md-auto">
-                    <img src="https://localhost:5001/api/products/GameImageByName/@product.PhotoUrl" class="card-img-top" alt="Product image">
-                    <div class="card-body row justify-content-center align-items-start">
-                        <h5 class="card-title text-center">@product.Name</h5>
-                    </div>
-                    <div class="card-body row justify-content-center align-items-center">
-                        <h5 class="card-price">€ @product.Price</h5>
-                        <a asp-area="" asp-controller="Products" asp-action="Detail" asp-route-id="@product.Id" class="btn btn-outline-dark btn-card">INFO</a>
-                        <a href="#" class="btn btn-dark btn-card">BUY</a>
-                    </div>
-                </div>
-            }
-        }
+        <div v-for="product in products" v-if="product.id == 40 || product.id == 45 || product.id == 46" class="card col-md-3 md-auto">
+            <img class="card-img-top" v-bind:src="'https://localhost:5001/api/products/GameImageByName/' + product.photoUrl">
+
+            <div class="card-body row justify-content-center align-items-start">
+                <h5 class="card-title text-center">{{product.name}}</h5>
+            </div>
+            <div class="card-body row justify-content-center align-items-center">
+                <h5 class="card-price">€ {{product.price}}</h5>
+                <a v-bind:href="'/Products/Detail/' + product.id" class="btn btn-outline-dark btn-card">INFO</a>
+                <a asp-area="" asp-controller="ShoppingCart" asp-action="Index" asp-route-id="{{product.id}}" class="btn btn-dark btn-card">BUY</a>
+            </div>
+        </div>
     </div>
 </div>
+
+@section scripts{
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="~/js/products.js"></script>
+}
