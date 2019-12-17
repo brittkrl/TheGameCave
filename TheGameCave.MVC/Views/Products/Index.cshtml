@@ -5,22 +5,76 @@
     <i class="fas fa-arrow-alt-circle-left"></i> Go Back
 </a>
 
-<h1>All games</h1>
-<div class="productblock container">
+<div id="app" class="productblock container">
+<h1>{{title}}</h1>
     <div class="products row justify-content-center">
-        @foreach (var product in Model)
-        {
-            <div class="card col-md-3 md-auto">
-                <img src="https://localhost:5001/api/products/GameImageByName/@product.PhotoUrl" class="card-img-top" alt="Product image">
-                <div class="card-body row justify-content-center align-items-start">
-                    <h5 class="card-title text-center">@product.Name</h5>
+        <input type="text" v-model="search" placeholder="Search games" />
+        @*@foreach (var product in Model)
+            {
+                <div class="card col-md-3 md-auto">
+                    <img src="https://localhost:5001/api/products/GameImageByName/@product.PhotoUrl" class="card-img-top" alt="Product image">
+                    <div class="card-body row justify-content-center align-items-start">
+                        <h5 class="card-title text-center">@product.Name</h5>
+                    </div>
+                    <div class="card-body row justify-content-center align-items-center">
+                        <h5 class="card-price">€ @product.Price</h5>
+                        <a asp-area="" asp-controller="Products" asp-action="Detail" asp-route-id="@product.Id" class="btn btn-outline-dark btn-card">INFO</a>
+                        <a asp-area="" asp-controller="ShoppingCart" asp-action="Index" asp-route-id="@product.Id" class="btn btn-dark btn-card">BUY</a>
+                    </div>
                 </div>
-                <div class="card-body row justify-content-center align-items-center">
-                    <h5 class="card-price">€ @product.Price</h5>
-                    <a asp-area="" asp-controller="Products" asp-action="Detail" asp-route-id="@product.Id" class="btn btn-outline-dark btn-card">INFO</a>
-                    <a asp-action="Index" asp-controller="Cart" asp-route-id="@product.Id" class="btn btn-dark btn-card">BUY</a>
-                </div>
+            }*@
+        <div v-for="product in products" class="card col-md-3 md-auto">
+            @*<img src="https://localhost:5001/api/products/GameImageByName/@product.PhotoUrl" class="card-img-top" alt="Product image">*@
+            <div class="card-body row justify-content-center align-items-start">
+                <h5 class="card-title text-center">{{product.name}}</h5>
             </div>
-        }
+            <div class="card-body row justify-content-center align-items-center">
+                <h5 class="card-price">€ {{product.price}}</h5>
+                <a asp-area="" asp-controller="Products" asp-action="Detail" asp-route-id="{{product.Id}}" class="btn btn-outline-dark btn-card">INFO</a>
+                <a asp-area="" asp-controller="ShoppingCart" asp-action="Index" asp-route-id="{{product.Id}}" class="btn btn-dark btn-card">BUY</a>
+            </div>
+        </div>
     </div>
 </div>
+
+@section scripts{
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var ApiUri = "https://localhost:5001/api/products/basic";
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                title: 'All Games',
+                //search: '',
+                products: null
+            },
+            created: function () {
+                var self = this;
+                self.fetchProducts();
+            },
+            methods: {
+                fetchProducts: function () {
+                    self = this;
+                    fetch(`${ApiUri}`)
+                        .then(res => res.json())
+                        .then(function (products) {
+                            self.products = products;
+                        })
+                }
+            },
+            //computed: {
+            //    filteredProducts: function () {
+            //        if (this.search) {
+            //            return this.products.filter((product) => {
+            //                return product.name.match(this.search)
+            //            });
+            //        }
+            //        else {
+            //            return this.products;
+            //        }
+            //    }
+            //}
+        });
+    </script>
+}
