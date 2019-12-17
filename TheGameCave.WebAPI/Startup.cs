@@ -42,8 +42,8 @@ namespace TheGameCave.WebAPI
                 });
 
             var mapper = config.CreateMapper();
-            services.AddSingleton(mapper);
-
+            services.AddSingleton(mapper);     
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,6 +60,9 @@ namespace TheGameCave.WebAPI
             }
 
             app.UseHttpsRedirection();
+            app.UseCors(builder => builder.AllowAnyOrigin()
+                                            .AllowAnyHeader()
+                                            .AllowAnyMethod());
             app.UseMvc();
         }
     }
