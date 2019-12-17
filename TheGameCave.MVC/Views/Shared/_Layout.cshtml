@@ -15,7 +15,7 @@
               crossorigin="anonymous"
               integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" />
     </environment>
-    <script src="https://kit.fontawesome.com/4a7ce1facc.js" crossorigin="anonymous"></script>
+    @*<script src="https://kit.fontawesome.com/4a7ce1facc.js" crossorigin="anonymous"></script>*@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
@@ -30,16 +30,13 @@
             <div class="collapse navbar-collapse justify-content-between" id="navbarNav" style="margin-left: 225px;">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">HOME <span class="sr-only">(current)</span></a>
+                        <a class="nav-link text-uppercase" asp-area="" asp-controller="Home" asp-action="Index">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="Products" asp-action="Index">PRODUCTS</a>
+                        <a class="nav-link text-uppercase" asp-area="" asp-controller="Products" asp-action="Index">Products</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">SALE</a>
-                    </li>
-                    <li class="nav-item last">
-                        <a class="nav-link" asp-area="" asp-controller="Contact" asp-action="Index">CONTACT</a>
+                        <a class="nav-link text-uppercase" href="#">Sale</a>
                     </li>
                 </ul>
                 <partial name="_LoginPartial" />
@@ -51,13 +48,7 @@
         @RenderBody()
     </div>
 
-    <a href="#" id="scrollButton"><i class="fas fa-chevron-circle-up fa-5x"></i></a>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2019 - The Game Cave - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+    <partial name="_Footer" />
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
@@ -77,7 +68,7 @@
                 integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o">
         </script>
     </environment>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/site.js"></script>
 
     @RenderSection("Scripts", required: false)
 </body>
