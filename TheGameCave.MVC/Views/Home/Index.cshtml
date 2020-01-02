@@ -1,31 +1,7 @@
 ﻿@using TheGameCave.Lib.DTO
 @model List<ProductBasicDto>
 
-<div class="row justify-content-center" id="categories">
-    <div class="row justify-content-end">
-        <img src="https://localhost:5001/api/products/imagebyname/board.png" class="categoryimage" />
-    </div>
-    <div class="col-2 align-self-end" style="margin-bottom:5px">
-        BOARD<br>GAMES<br>
-        <a class="btn btn-dark" asp-area="" asp-controller="Products" asp-action="BoardGames">SHOP</a>
-    </div>
-
-    <div class="row justify-content-end">
-        <img src="https://localhost:5001/api/products/imagebyname/card.png" class="categoryimage" />
-    </div>
-    <div class="col-2 align-self-end" style="margin-bottom:5px">
-        CARD<br>GAMES<br>
-        <a class="btn btn-dark" asp-area="" asp-controller="Products" asp-action="CardGames">SHOP</a>
-    </div>
-
-    <div class="row justify-content-end">
-        <img src="https://localhost:5001/api/products/imagebyname/dice.png" class="categoryimage" />
-    </div>
-    <div class="col-2 align-self-end" style="margin-bottom:5px">
-        DICE<br>GAMES<br>
-        <a class="btn btn-dark" asp-area="" asp-controller="Products" asp-action="DiceGames">SHOP</a>
-    </div>
-</div>
+<partial name="_CategoriesPartial" />
 
 <div class="productlabel">NEW RELEASES</div>
 
