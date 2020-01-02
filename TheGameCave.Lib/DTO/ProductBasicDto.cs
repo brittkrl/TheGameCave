@@ -13,5 +13,6 @@ namespace TheGameCave.Lib.DTO
         public decimal Price { get; set; }
         public string CategoryName { get; set; }
         public string ProductType { get; set; }
+        public bool OnSale { get; set; }
     }
 }

@@ -30,5 +30,6 @@ namespace TheGameCave.Lib.Models
         public string CategoryName { get; set; }
         public int PublisherId { get; set; }
         public string PublisherName { get; set; }
+        public bool OnSale { get; set; }
     }
 }

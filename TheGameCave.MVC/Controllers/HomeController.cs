@@ -27,6 +27,12 @@ namespace TheGameCave.MVC.Controllers
             return View();
         }
 
+        [Route("Sale")]
+        public IActionResult Sale()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

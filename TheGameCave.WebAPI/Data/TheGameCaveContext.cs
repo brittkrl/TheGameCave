@@ -62,7 +62,7 @@ namespace TheGameCave.WebAPI.Data
 
             modelBuilder.Entity<Product>()
                 .ToTable("Product")
-                .HasData(new 
+                .HasData(new
                 {
                     Id = 1,
                     Name = "Mansions of Madness: Second Edition",
@@ -75,7 +75,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 14,
                     Language = Language.English,
                     PublisherId = 2,
-                    PhotoUrl = "mansionsofmadness2.jpg"
+                    PhotoUrl = "mansionsofmadness2.jpg",
+                    OnSale = true
                 },
                 new
                 {
@@ -90,9 +91,10 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 14,
                     Language = Language.English,
                     PublisherId = 2,
-                    PhotoUrl = "arkhamhorrorcardgame.jpg"
+                    PhotoUrl = "arkhamhorrorcardgame.jpg",
+                    OnSale = false
                 },
-                new 
+                new
                 {
                     Id = 3,
                     Name = "Eldritch Horror",
@@ -105,7 +107,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 14,
                     Language = Language.English,
                     PublisherId = 2,
-                    PhotoUrl = "eldritchhorror.jpg"
+                    PhotoUrl = "eldritchhorror.jpg",
+                    OnSale = false
                 },
                 new
                 {
@@ -120,7 +123,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 13,
                     Language = Language.English,
                     PublisherId = 3,
-                    PhotoUrl = "aboveandbelow.jpg"
+                    PhotoUrl = "aboveandbelow.jpg",
+                    OnSale = false
                 },
                 new
                 {
@@ -135,7 +139,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 7,
                     Language = Language.English,
                     PublisherId = 4,
-                    PhotoUrl = "stuffedfables.jpg"
+                    PhotoUrl = "stuffedfables.jpg",
+                    OnSale = false
                 },
                 new
                 {
@@ -150,7 +155,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 14,
                     Language = Language.English,
                     PublisherId = 5,
-                    PhotoUrl = "robinsoncrusoe.jpg"
+                    PhotoUrl = "robinsoncrusoe.jpg",
+                    OnSale = false
                 },
                 new
                 {
@@ -165,7 +171,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 14,
                     Language = Language.English,
                     PublisherId = 6,
-                    PhotoUrl = "sagrada.jpg"
+                    PhotoUrl = "sagrada.jpg",
+                    OnSale = false
                 },
                 new
                 {
@@ -180,7 +187,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 8,
                     Language = Language.Dutch,
                     PublisherId = 7,
-                    PhotoUrl = "mansionsofmadness2.jpg"
+                    PhotoUrl = "clever.jpg",
+                    OnSale = false
                 },
                 new
                 {
@@ -195,7 +203,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 8,
                     Language = Language.English,
                     PublisherId = 8,
-                    PhotoUrl = "escapethecurseofthetemple.jpg"
+                    PhotoUrl = "escapethecurseofthetemple.jpg",
+                    OnSale = false
                 },
                 new
                 {
@@ -210,7 +219,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 8,
                     Language = Language.English,
                     PublisherId = 9,
-                    PhotoUrl = "deepseaadventure.jpg"
+                    PhotoUrl = "deepseaadventure.jpg",
+                    OnSale = false
                 },
                 new
                 {
@@ -225,7 +235,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 13,
                     Language = Language.English,
                     PublisherId = 10,
-                    PhotoUrl = "spiritisland.jpg"
+                    PhotoUrl = "spiritisland.jpg",
+                    OnSale = true
                 },
                 new
                 {
@@ -240,7 +251,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 13,
                     Language = Language.English,
                     PublisherId = 11,
-                    PhotoUrl = "fivetribes.jpg"
+                    PhotoUrl = "fivetribes.jpg",
+                    OnSale = false
                 },
                 new
                 {
@@ -255,7 +267,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 14,
                     Language = Language.English,
                     PublisherId = 2,
-                    PhotoUrl = "gameofthronesboardgame.jpg"
+                    PhotoUrl = "gameofthronesboardgame.jpg",
+                    OnSale = false
                 },
                 new
                 {
@@ -270,7 +283,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 13,
                     Language = Language.English,
                     PublisherId = 2,
-                    PhotoUrl = "lordoftheringscardgame.jpg"
+                    PhotoUrl = "lordoftheringscardgame.jpg",
+                    OnSale = false
                 },
                 new
                 {
@@ -285,7 +299,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 14,
                     Language = Language.English,
                     PublisherId = 2,
-                    PhotoUrl = "starwarsrebellion.jpg"
+                    PhotoUrl = "starwarsrebellion.jpg",
+                    OnSale = true
                 },
                 new
                 {
@@ -300,7 +315,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 14,
                     Language = Language.English,
                     PublisherId = 2,
-                    PhotoUrl = "battlestargalacticaboardgame.jpg"
+                    PhotoUrl = "battlestargalacticaboardgame.jpg",
+                    OnSale = false
                 },
                 new
                 {
@@ -315,7 +331,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 11,
                     Language = Language.English,
                     PublisherId = 12,
-                    PhotoUrl = "harrypotterhogwartsbattle.jpg"
+                    PhotoUrl = "harrypotterhogwartsbattle.jpg",
+                    OnSale = false
                 },
                 new
                 {
@@ -330,7 +347,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 17,
                     Language = Language.English,
                     PublisherId = 13,
-                    PhotoUrl = "legendaryencounters-alien.jpg"
+                    PhotoUrl = "legendaryencounters-alien.jpg",
+                    OnSale = true
                 },
                 new
                 {
@@ -345,7 +363,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 14,
                     Language = Language.English,
                     PublisherId = 14,
-                    PhotoUrl = "codenames.jpg"
+                    PhotoUrl = "codenames.jpg",
+                    OnSale = false
                 },
                 new
                 {
@@ -360,7 +379,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 8,
                     Language = Language.English,
                     PublisherId = 14,
-                    PhotoUrl = "sushigoparty.jpg"
+                    PhotoUrl = "sushigoparty.jpg",
+                    OnSale = false
                 },
                 new
                 {
@@ -375,7 +395,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 7,
                     Language = Language.English,
                     PublisherId = 15,
-                    PhotoUrl = "explodingkittens.jpg"
+                    PhotoUrl = "explodingkittens.jpg",
+                    OnSale = false
                 },
                 new
                 {
@@ -390,7 +411,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 8,
                     Language = Language.English,
                     PublisherId = 16,
-                    PhotoUrl = "dixitodyssey.jpg"
+                    PhotoUrl = "dixitodyssey.jpg",
+                    OnSale = false
                 },
                 new
                 {
@@ -405,7 +427,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 12,
                     Language = Language.English,
                     PublisherId = 1,
-                    PhotoUrl = "terraformingmars.jpg"
+                    PhotoUrl = "terraformingmars.jpg",
+                    OnSale = true
                 },
                 new
                 {
@@ -420,7 +443,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 14,
                     Language = Language.English,
                     PublisherId = 17,
-                    PhotoUrl = "scythe.jpg"
+                    PhotoUrl = "scythe.jpg",
+                    OnSale = false
                 },
                 new
                 {
@@ -435,7 +459,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 12,
                     Language = Language.English,
                     PublisherId = 18,
-                    PhotoUrl = "timestories.jpg"
+                    PhotoUrl = "timestories.jpg",
+                    OnSale = false
                 },
                 new
                 {
@@ -450,7 +475,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 18,
                     Language = Language.English,
                     PublisherId = 2,
-                    PhotoUrl = "gameofthronestrivia.jpg"
+                    PhotoUrl = "gameofthronestrivia.jpg",
+                    OnSale = true
                 },
                 new
                 {
@@ -465,7 +491,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 14,
                     Language = Language.Dutch,
                     PublisherId = 19,
-                    PhotoUrl = "iknow.jpg"
+                    PhotoUrl = "iknow.jpg",
+                    OnSale = false
                 },
                 new
                 {
@@ -480,7 +507,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 6,
                     Language = Language.English,
                     PublisherId = 20,
-                    PhotoUrl = "bandido.jpg"
+                    PhotoUrl = "bandido.jpg",
+                    OnSale = false
                 }, new
                 {
                     Id = 29,
@@ -494,7 +522,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 7,
                     Language = Language.English,
                     PublisherId = 15,
-                    PhotoUrl = "bearsvsbabies.jpg"
+                    PhotoUrl = "bearsvsbabies.jpg",
+                    OnSale = false
                 },
                 new
                 {
@@ -509,7 +538,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 12,
                     Language = Language.English,
                     PublisherId = 15,
-                    PhotoUrl = "betrayalatthehouseonthehill.jpg"
+                    PhotoUrl = "betrayalatthehouseonthehill.jpg",
+                    OnSale = false
                 },
                 new
                 {
@@ -524,7 +554,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 8,
                     Language = Language.English,
                     PublisherId = 21,
-                    PhotoUrl = "centurygolemedition.jpg"
+                    PhotoUrl = "centurygolemedition.jpg",
+                    OnSale = false
                 },
                 new
                 {
@@ -539,7 +570,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 8,
                     Language = Language.English,
                     PublisherId = 22,
-                    PhotoUrl = "draftosaurus.jpg"
+                    PhotoUrl = "draftosaurus.jpg",
+                    OnSale = false
                 },
                 new
                 {
@@ -554,7 +586,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 18,
                     Language = Language.English,
                     PublisherId = 15,
-                    PhotoUrl = "explodingkittens-nsfw.jpg"
+                    PhotoUrl = "explodingkittens-nsfw.jpg",
+                    OnSale = false
                 },
                 new
                 {
@@ -569,7 +602,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 7,
                     Language = Language.English,
                     PublisherId = 15,
-                    PhotoUrl = "fireballislandlegendofvulkar.jpg"
+                    PhotoUrl = "fireballislandlegendofvulkar.jpg",
+                    OnSale = true
                 },
                 new
                 {
@@ -584,7 +618,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 8,
                     Language = Language.English,
                     PublisherId = 23,
-                    PhotoUrl = "kingoftokyo.jpg"
+                    PhotoUrl = "kingoftokyo.jpg",
+                    OnSale = false
                 },
                 new
                 {
@@ -599,7 +634,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 10,
                     Language = Language.English,
                     PublisherId = 14,
-                    PhotoUrl = "imhotep.jpg"
+                    PhotoUrl = "imhotep.jpg",
+                    OnSale = false
                 },
                 new
                 {
@@ -614,7 +650,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 7,
                     Language = Language.English,
                     PublisherId = 15,
-                    PhotoUrl = "implodingkittens.jpg"
+                    PhotoUrl = "implodingkittens.jpg",
+                    OnSale = false
                 },
                 new
                 {
@@ -629,7 +666,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 8,
                     Language = Language.English,
                     PublisherId = 14,
-                    PhotoUrl = "lanternstheharvestfestival.jpg"
+                    PhotoUrl = "lanternstheharvestfestival.jpg",
+                    OnSale = false
                 },
                 new
                 {
@@ -644,7 +682,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 14,
                     Language = Language.English,
                     PublisherId = 7,
-                    PhotoUrl = "lettersfromwhitechapel.jpg"
+                    PhotoUrl = "lettersfromwhitechapel.jpg",
+                    OnSale = false
                 },
                 new
                 {
@@ -659,7 +698,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 8,
                     Language = Language.English,
                     PublisherId = 14,
-                    PhotoUrl = "railroadink-red.jpg"
+                    PhotoUrl = "railroadink-red.jpg",
+                    OnSale = false
                 },
                 new
                 {
@@ -674,7 +714,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 8,
                     Language = Language.English,
                     PublisherId = 24,
-                    PhotoUrl = "santorini.jpg"
+                    PhotoUrl = "santorini.jpg",
+                    OnSale = false
                 },
                 new
                 {
@@ -689,7 +730,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 8,
                     Language = Language.English,
                     PublisherId = 15,
-                    PhotoUrl = "takenoko.jpg"
+                    PhotoUrl = "takenoko.jpg",
+                    OnSale = false
                 },
                 new
                 {
@@ -704,7 +746,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 12,
                     Language = Language.English,
                     PublisherId = 1,
-                    PhotoUrl = "terraformingmarscolonies.jpg"
+                    PhotoUrl = "terraformingmarscolonies.jpg",
+                    OnSale = false
                 },
                 new
                 {
@@ -719,7 +762,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 12,
                     Language = Language.English,
                     PublisherId = 1,
-                    PhotoUrl = "terraformingmarsprelude.jpg"
+                    PhotoUrl = "terraformingmarsprelude.jpg",
+                    OnSale = false
                 },
                 new
                 {
@@ -734,7 +778,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 7,
                     Language = Language.English,
                     PublisherId = 15,
-                    PhotoUrl = "throwthrowburrito.jpg"
+                    PhotoUrl = "throwthrowburrito.jpg",
+                    OnSale = false
                 },
                 new
                 {
@@ -749,7 +794,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 14,
                     Language = Language.English,
                     PublisherId = 25,
-                    PhotoUrl = "unstableunicorns.jpg"
+                    PhotoUrl = "unstableunicorns.jpg",
+                    OnSale = false
                 },
                 new
                 {
@@ -764,7 +810,8 @@ namespace TheGameCave.WebAPI.Data
                     MinimumAge = 10,
                     Language = Language.English,
                     PublisherId = 26,
-                    PhotoUrl = "welcometo.jpg"
+                    PhotoUrl = "welcometo.jpg",
+                    OnSale = false
                 });
         }
         public DbSet<Product> Products { get; set; }
