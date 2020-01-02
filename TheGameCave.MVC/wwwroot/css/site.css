@@ -200,45 +200,6 @@ h2 {
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     }
 
-/*.btn {
-    background-color: #C712E3;
-    color: white;
-    border-color: #C712E3;
-}*/
-
-/*.btn-outline {
-    background-color: white;
-    color: #C712E3;
-    border-color: #C712E3;
-}
-
-    .btn-outline:hover {
-        color: #fff;
-        background-color: #C712E3;
-        border-color: #C712E3;
-    }
-
-    .btn-outline:focus, .btn-outline.focus {
-        box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.5);
-    }
-
-    .btn-outline.disabled, .btn-outline:disabled {
-        color: #C712E3;
-        background-color: transparent;
-    }
-
-    .btn-outline:not(:disabled):not(.disabled):active, .btn-outline:not(:disabled):not(.disabled).active,
-    .show > .btn-outline.dropdown-toggle {
-        color: #fff;
-        background-color: #C712E3;
-        border-color: #C712E3;
-    }
-
-        .btn-outline:not(:disabled):not(.disabled):active:focus, .btn-outline:not(:disabled):not(.disabled).active:focus,
-        .show > .btn-outline.dropdown-toggle:focus {
-            box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.5);
-        }*/
-
 .btn-dark {
     color: #fff;
     background-color: #C712E3;
@@ -433,3 +394,33 @@ h2 {
             border-bottom: 3px solid transparent;
             border-top: 3px solid #8F0808;
         }
+
+.badge-red {
+    background-color: #C712E3;
+}
+
+#shoppingCartBadge {
+    text-decoration: none;
+    color: white;
+}
+
+.shopping-cart-total-amount {
+    font-size: 25px;
+    color: #f64b14;
+}
+
+.cartIcon:hover {
+    cursor: pointer;
+}
+
+.imgCart{
+    height:100px;
+}
+
+.creditcardIcons {
+    color: #C712E3;
+}
+
+    .creditcardIcons:hover {
+        color: #3A3A3A;
+    }

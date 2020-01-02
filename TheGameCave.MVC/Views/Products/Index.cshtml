@@ -28,7 +28,7 @@
                     <span>€ {{product.price}}</span>
                 </h5>
                 <a v-bind:href="'/Products/Detail/' + product.id" class="btn btn-outline-dark btn-card">INFO</a>
-                <a asp-area="" asp-controller="ShoppingCart" asp-action="Index" asp-route-id="{{product.id}}" class="btn btn-dark btn-card">BUY</a>
+                <button v-bind:data-id="product.id" class="btn btn-dark btn-card" @@click="addToCart(product)">BUY</button>
             </div>
         </div>
     </div>

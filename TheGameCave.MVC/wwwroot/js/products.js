@@ -21,6 +21,11 @@ var app = new Vue({
                 })
                 .catch(err => console.error('Fout: ' + err));
         },
+        addToCart(product) {
+            product.quantity = 1;
+            shoppingCartStore.commit('addToCart', product);
+            shoppingCartStore.commit('saveCart');
+        },
     },
     computed: {
         filteredProducts: function () {
