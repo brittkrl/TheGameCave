@@ -1,7 +1,7 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
-@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Pathway+Gothic+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300|Open+Sans+Condensed:300|Squada+One&display=swap');
 
 
 a.navbar-brand {
@@ -54,6 +54,21 @@ body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
     font-family: 'Open Sans Condensed', sans-serif;
+}
+
+h1 {
+    font-family: 'Squada One', cursive;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 4em;
+    color: white;
+    text-shadow: 3px 3px #000, -3px 3px #000, 3px -3px #000, -3px -3px #000, 3px 3px 5px #555;
+}
+
+h2 {
+    font-family: 'Squada One', cursive;
+    /*text-transform: uppercase;*/
+    font-size: 3em;
 }
 
 .footer {
@@ -115,18 +130,6 @@ body {
     padding-left: 75px;
 }
 
-#scrollButton {
-    color: #696969;
-    position: fixed;
-    right: 15px;
-    bottom: 32px;
-    z-index: 1;
-}
-
-    #scrollButton:hover {
-        color: #545454;
-    }
-
 #highlights {
     height: 325px;
     width: 100%;
@@ -172,6 +175,10 @@ body {
     text-align: center;
     padding: 15px 0 15px 0;
     margin: 30px 0 15px 0;
+}
+
+#productDescription {
+    font-family: 'Open Sans', sans-serif;
 }
 
 .card {
@@ -303,6 +310,46 @@ body {
     z-index: 1;
 }
 
+#goUp {
+    display: inline-block;
+    background-color: #696969;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 4px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    transition: background-color .3s, opacity .5s, visibility .5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+}
+
+    #goUp::after {
+        content: "\f077";
+        font-family: FontAwesome;
+        font-weight: normal;
+        font-style: normal;
+        font-size: 2em;
+        line-height: 50px;
+        color: #fff;
+    }
+
+    #goUp:hover {
+        cursor: pointer;
+        background-color: #C712E3;
+    }
+
+    #goUp:active {
+        background-color: #555;
+    }
+
+    #goUp.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
 .card-price {
     margin-right: 15px;
 }
@@ -320,4 +367,8 @@ body {
     background-color: #696969;
     text-align: center;
     padding: 15px 0 15px 0;
+}
+
+#registerDiv{
+    padding-bottom: 20px;
 }

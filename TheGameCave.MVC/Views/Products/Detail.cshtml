@@ -1,22 +1,20 @@
 ﻿@model TheGameCave.MVC.ViewModels.ProductDetailViewModel
 
-<a href="javascript: history.go(-1)" class="btn btn-dark btn-lg btn-back align-self-end">
-    <i class="fas fa-arrow-alt-circle-left"></i> Go Back
-</a>
+<partial name="_BackButton" />
 
 <div class="row justify-content-center">
-    <div class="col-md-4">
+    <div class="col-md-4 justify-content-end">
         <img src="https://localhost:5001/api/products/gameimagebyname/@Model.ProductDetail.PhotoUrl" alt="Image of the product" width="400" /><br />
         <a asp-area="" asp-controller="ShoppingCart" asp-action="Index" class="btn btn-dark btn-lg">
-            <i class="fas fa-shopping-cart"></i>   Add To Cart
+            <img src="https://localhost:5001/api/products/imagebyname/cart.png"/>  Add To Cart
         </a>
-        
+
     </div>
     <div class="col-md-7">
-        <h1>@Model.ProductDetail.Name</h1>
+        <h2>@Model.ProductDetail.Name</h2>
 
         <h3>€ @Model.ProductDetail.Price</h3>
-        <p>@Model.ProductDetail.Description</p>
+        <p id="productDescription">@Model.ProductDetail.Description</p>
 
         <table class="table">
             <tr>
