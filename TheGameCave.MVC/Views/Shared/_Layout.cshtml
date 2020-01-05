@@ -73,16 +73,8 @@
     <script src="~/js/site.js"></script>
     <script src="~/js/bootstrap-notify.min.js" asp-append-version="true"></script>
 
-    <script>
-        var shoppingCartBadgeApp = new Vue({
-            el: "#shoppingCartBadge",
-            data: {
-                quantity: 0
-            }
-        });
+    <script src="~/js/shoppingcartbadge.js"></script>
 
-        shoppingCartBadgeApp.quantity = shoppingCartStore.getters.getCart.length;
-    </script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>
