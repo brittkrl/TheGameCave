@@ -1,0 +1,192 @@
+﻿
+@{
+    ViewData["Title"] = "Edit products";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@ViewBag.Title</h1>
+
+<article id="app" class="row">
+    <header class="col-md-4">
+        <h3>{{message}}</h3>
+        <nav>
+            <ul class="list-group">
+                <li v-for="product in products" v-on:click="fetchProductDetails(product)" :class="getProductClass(product)" style="cursor:pointer">
+                    <span class="productTitle">{{product.name}}</span>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div v-if="currentProduct" class="col-md-8">
+        <h3>Details</h3>
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-2 control-label small">Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" v-model="currentProduct.name" :readonly="isReadOnly">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label small">Description</label>
+                <div class="col-sm-10">
+                    <textarea type="text" class="form-control" v-model="currentProduct.description" rows="8" :readonly="isReadOnly"></textarea>
+                </div>
+            </div>
+
+            <button v-on:click="toEditMode(true)" v-if="isReadOnly" class="btn btn-primary">Edit</button>
+            <button v-on:click="save" v-if="!isReadOnly" class="btn btn-primary">Save</button>
+            <button v-on:click="cancel" v-if="!isReadOnly" class="btn btn-default">Cancel</button>
+        </div>
+    </div>
+</article>
+
+
+@section scripts{
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var apiUri = "https://localhost:5001/api/";
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Loading products',
+                products: null,
+                publishers: null,
+                currentProduct: null,
+                isReadOnly: true,
+                isEdit: false
+            },
+            created: function () {
+                var self = this;
+                self.fetchProducts();
+                self.fetchPublishers();
+            },
+            methods: {
+                fetchProducts: function () {
+                    self = this;
+                    fetch(`${apiUri}Products/Basic`)
+                        .then(res => res.json())
+                        .then(function (products) {
+                            products.forEach(function (product, i) {
+                                product.isActive = false;
+                            });
+                            self.products = products;
+                            self.message = 'Overview';
+                            if (self.products.length > 0) {
+                                self.fetchProductDetails(self.products[0]);
+                            }
+                        })
+                        .catch(err => console.error('Fout: ' + err));
+                },
+                fetchProductDetails: function (product) {
+                    self = this;
+                    if (!self.isReadOnly) return;
+                    fetch(`${apiUri}Products/${product.id}`)
+                        .then(res => res.json())
+                        .then(function (res) {
+                            self.currentProduct = res;
+                            self.makeProductActive(product.id);
+                        })
+                        .catch(err => console.error('Fout: ' + err));
+                },
+                makeProductActive: function (productId) {
+                    self.products.forEach(function (product) {
+                        product.isActive = product.id === productId ? true : false;
+                    });
+                },
+
+                getProductClass: function (product) {
+                    if (product.isActive) return 'list-group-item active';
+                    return 'list-group-item';
+                },
+                fetchPublishers: function () {
+                    self = this;
+                    fetch(`${apiUri}Publisher`)
+                        .then(res => res.json())
+                        .then(function (res) {
+                            self.publishers = res;
+                        })
+                        .catch(err => console.error('Fout: ' + err));
+                },
+                toEditMode: function (isEdit) {
+                    self = this;
+                    self.isReadOnly = false;
+                    self.isEdit = isEdit;
+                    if (!isEdit) {
+                        self.currentProduct = { "name": "", "description": "", "categoryId": 0, "category": { "name": "" }, "publisherId": 0, "publisher": { "name": "" }, "fileName": "", "id": 0 };
+                    }
+                },
+                save: function () {
+                    var self = this;
+
+                    var ajaxHeaders = new Headers();
+                    ajaxHeaders.append("Content-Type", "application/json");
+                    var ajaxConfig = {
+                        method: 'PUT',
+                        body: JSON.stringify(self.currentProduct),
+                        headers: ajaxHeaders
+                    };
+
+                    if (self.isEdit) {
+                        let myRequest = new Request(`${apiUri}Products/${self.currentProduct.id}`, ajaxConfig);
+                        fetch(myRequest)
+                            .then(res => res.json())
+                            .then(res => {
+                                self.updateProductList(res);
+                            })
+                            .catch(err => console.error('Fout: ' + err));
+                    }
+                    else {
+                        ajaxConfig.method = 'POST';
+                        let myRequest = new Request(`${apiUri}Products/`, ajaxConfig);
+                        fetch(myRequest)
+                            .then(res => res.json())
+                            .then(res => {
+                                self.addProductToList(res);
+                            })
+                            .catch(err => console.error('Fout: ' + err));
+                    }
+                    self.isEdit = false;
+                    self.isReadOnly = true;
+                },
+                addProductToList: function (product) {
+
+                    self.currentProduct.id = product.id;
+                    self.products.push(product);
+                    self.fetchProductDetails(self.products[self.products.length - 1]);
+                },
+                updateProductList: function (product) {
+
+                    var updatedProduct = self.products.filter(b => b.id === product.id)[0];
+                    updatedProduct.name = product.name;
+                },
+                cancel: function () {
+                    var self = this;
+                    self.isReadOnly = true;
+                    self.isEdit = false;
+                    if (self.isEdit) {
+                        self.fetchProductDetails(self.currentProduct);
+                    } else {
+                        self.fetchProductDetails(self.products[0]);
+                    }
+                },
+                deleteProduct: function () {
+                    self = this;
+                    fetch(`${apiUri}Products/${self.currentProduct.id}`, { method: 'DELETE' })
+                        .then(res => res.json())
+                        .then(function (res) {
+                            self.products.forEach(function (product, i) {
+                                if (product.id === self.currentProduct.id) {
+                                    self.products.splice(i, 1);
+                                    return;
+                                }
+                            });
+                            if (self.products.length > 0)
+                                self.fetchProductDetails(self.products[0]);
+                        })
+                        .catch(err => console.error('Fout: ' + err));
+                },
+            }
+        });
+    </script>
+}
