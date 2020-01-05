@@ -26,6 +26,10 @@ var app = new Vue({
             shoppingCartStore.commit('addToCart', product);
             shoppingCartStore.commit('saveCart');
         },
+        formatPrice(value) {
+            var val = (value / 1).toFixed(2).replace('.', ',')
+            return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+        }
     },
     computed: {
         filteredProducts: function () {

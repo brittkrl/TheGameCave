@@ -29,10 +29,10 @@
                     <input type="number" v-model="item.quantity" class="form-control" />
                 </td>
                 <td>
-                    {{ item.price }}
+                    <span v-if="item.onSale === true">{{ formatPrice(item.price-10) }}</span> <span v-if="item.onSale === false">{{ formatPrice(item.price) }}</span>
                 </td>
                 <td>
-                    {{ item.quantity * item.price }}
+                    <span v-if="item.onSale === true">{{ formatPrice(item.quantity * (item.price-10)) }}</span> <span v-if="item.onSale === false">{{ formatPrice(item.quantity * item.price) }}</span>
                 </td>
                 <td class="text-center">
                     <a class="cartIcon" @@click="removeFromCart(item)"><img src="https://localhost:5001/api/products/imagebyname/delete.png" /></a>
@@ -45,7 +45,7 @@
                     <strong>Total</strong>
                 </td>
                 <td>
-                    <span class="shopping-cart-total-amount"><strong>{{ totalPrice() }}</strong></span>
+                    <span class="shopping-cart-total-amount"><strong>{{ formatPrice(totalPrice()) }}</strong></span>
                 </td>
                 <td>
                     <button class="btn btn-dark btn-lg text-center" data-toggle="modal" data-target="#checkoutModal">Checkout</button>
@@ -84,7 +84,7 @@
                             <i class="fab fa-cc-apple-pay"></i>
                         </span>
                     </h2>
-                    <h3> Total: € {{ totalPrice() }} </h3>
+                    <h3> Total: € {{ formatPrice(totalPrice()) }} </h3>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
@@ -110,10 +110,19 @@
                     totalPrice: function () {
                         var totalPrice = 0;
                         for (var index = 0; index < cart.length; index++) {
-                            totalPrice += cart[index].price * cart[index].quantity;
+                            if (cart[index].onSale) {
+                                totalPrice += (cart[index].price - 10) * cart[index].quantity;
+                            }
+                            else {
+                                totalPrice += cart[index].price * cart[index].quantity;
+                            }
                         }
 
                         return totalPrice;
+                    },
+                    formatPrice(value) {
+                        var val = (value / 1).toFixed(2).replace('.', ',')
+                        return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
                     },
                     removeFromCart(item) {
                         shoppingCartStore.commit('removeFromCart', item);
@@ -124,9 +133,6 @@
                     }
                 }
             });
-
-
-
             shoppingCartApp.totalPrice = totalPrice;
         });
     </script>
