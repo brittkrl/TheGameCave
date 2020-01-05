@@ -21,12 +21,12 @@
     <header id="header">
         <img src="https://localhost:5001/api/products/imagebyname/headerimg.png" alt="Header" id="headerimg" />
         <nav class="navbar navbar-dark navbar-expand-lg">
-            <a class="navbar-brand" href="#"><img src="https://localhost:5001/api/products/imagebyname/logo.png" id="headerlogo" alt="Logo" width="250" style="position:absolute; top:-60px; z-index: 1;"></a>
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index"><img src="https://localhost:5001/api/products/imagebyname/logo.png" id="headerlogo" alt="Logo" width="250" style="position:absolute; top:-60px; z-index: 1;"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse justify-content-between" id="navbarNav" style="margin-left: 225px;">
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
                         <a class="nav-link text-uppercase" asp-area="" asp-controller="Home" asp-action="Index">Home <span class="sr-only">(current)</span></a>

@@ -1,57 +1,12 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
+﻿@import url('https://fonts.googleapis.com/css?family=Open+Sans:300|Open+Sans+Condensed:300|Squada+One&display=swap');
 
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300|Open+Sans+Condensed:300|Squada+One&display=swap');
-
-
-a.navbar-brand {
-    white-space: normal;
-    text-align: center;
-    word-break: break-all;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-    font-size: 14px;
-}
-
-@media (min-width: 768px) {
-    html {
-        font-size: 16px;
-    }
-
-    #headerimg {
-        background-image: url(https://localhost:5001/api/products/imagebyname/headerimg768.png);
-    }
-}
-
-.border-top {
-    border-top: 1px solid #e5e5e5;
-}
-
-.border-bottom {
-    border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
-button.accept-policy {
-    font-size: 1rem;
-    line-height: inherit;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
 html {
     position: relative;
+    font-size: 16px;
     min-height: 100%;
 }
 
 body {
-    /* Margin bottom by footer height */
     margin-bottom: 60px;
     font-family: 'Open Sans Condensed', sans-serif;
 }
@@ -76,9 +31,8 @@ h2 {
     bottom: 0;
     width: 100%;
     white-space: nowrap;
-    /* Set the fixed height of the footer here */
     height: 60px;
-    line-height: 60px; /* Vertically center the text there */
+    line-height: 60px;
 }
 
 #headerimg {
@@ -90,7 +44,6 @@ h2 {
     width: 250px;
     position: absolute;
     top: -60px;
-    /* margin: 0 -30px 25px 25px; */
     z-index: 1;
 }
 
@@ -106,10 +59,13 @@ h2 {
     border-right: 1px solid white;
 }
 
+#navbarNav{
+    margin-left: 225px;
+}
+
 .navlistpipes {
     font-size: 1.1em;
     text-align: center;
-    margin-left: 225px;
 }
 
     .navlistpipes a {
@@ -128,6 +84,10 @@ h2 {
 
 #navidentity {
     padding-left: 75px;
+}
+
+header{
+    margin-bottom: 50px;
 }
 
 #highlights {
@@ -276,6 +236,7 @@ h2 {
     background-color: #696969;
     border-color: #696969;
     z-index: 1;
+    margin-top: -40px;
 }
 
 #goUp {
@@ -319,7 +280,12 @@ h2 {
     }
 
 .card-price {
-    margin-right: 15px;
+    margin: 0,10px,10px,10px;
+}
+
+.discountSpan {
+    font-size: small;
+    text-decoration: line-through;
 }
 
 #footer {
@@ -437,4 +403,38 @@ h2 {
 .card-horizontal {
     display: flex;
     flex: 1 1 auto;
+}
+
+.detailImg {
+    width: 100%;
+    margin: 10px;
+}
+
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 991px) {
+    #navbarNav {
+        margin: 35px 0 0 0;
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+    #navbarNav {
+        margin: 35px 0 0 0;
+    }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+    #navbarNav {
+        margin: 35px 0 0 0;
+    }
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+    #navbarNav {
+        margin: 35px 0 0 0;
+    }
 }

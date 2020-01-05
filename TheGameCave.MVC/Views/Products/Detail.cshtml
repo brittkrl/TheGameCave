@@ -3,12 +3,12 @@
 <partial name="_BackButton" />
 
 <div id="app">
-    <div class="row justify-content-center" v-for="product in products" v-if="product.id == @Model.ProductDetail.Id">
-        <div class="col-md-4 justify-content-end">
-            <img v-bind:src="'https://localhost:5001/api/products/GameImageByName/' + product.photoUrl" alt="Image of the product" width="400" style="margin:10px" /><br />
+    <div class="row justify-content-around" v-for="product in products" v-if="product.id == @Model.ProductDetail.Id">
+        <div class="col-sm-auto col-md-5 col-lg-5">
+            <img class="detailImg" v-bind:src="'https://localhost:5001/api/products/GameImageByName/' + product.photoUrl" alt="Image of the product" /><br />
             <button v-bind:data-id="product.id" class="btn btn-dark btn-lg float-right" @@click="addToCart(product)"><img src="https://localhost:5001/api/products/imagebyname/cart.png" />  Add To Cart</button>
         </div>
-        <div class="col-md-7">
+        <div class="col-sm-auto col-md-6 col-lg-6">
             <h2>{{product.name}}</h2>
 
             <h3 class="card-price" v-if="product.onSale === true">

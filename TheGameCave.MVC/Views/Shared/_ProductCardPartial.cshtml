@@ -6,7 +6,7 @@
 </div>
 <div class="card-body row justify-content-center align-items-center">
     <h5 class="card-price" v-if="product.onSale === true">
-        <span style="text-decoration: line-through">€ {{formatPrice(product.price)}}</span>
+        <span class="discountSpan">€ {{formatPrice(product.price)}}</span>
         <span>€ {{formatPrice(product.price - 10)}}</span>
     </h5>
     <h5 class="card-price" v-if="product.onSale === false">
