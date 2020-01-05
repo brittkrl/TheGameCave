@@ -13,23 +13,7 @@
     <div class="products row justify-content-center">
 
         <div v-for="product in filteredProducts" class="card col-md-3 md-auto">
-            <div class="ribbon" v-if="product.onSale === true"><span>Sale</span></div>
-            <img class="card-img-top" v-bind:src="'https://localhost:5001/api/products/GameImageByName/' + product.photoUrl">
-
-            <div class="card-body row justify-content-center align-items-start">
-                <h5 class="card-title text-center">{{product.name}}</h5>
-            </div>
-            <div class="card-body row justify-content-center align-items-center">
-                <h5 class="card-price" v-if="product.onSale === true">
-                    <span style="text-decoration: line-through">€ {{product.price}}</span>
-                    <span>€ {{product.price - 10}}</span>
-                </h5>
-                <h5 class="card-price" v-if="product.onSale === false">
-                    <span>€ {{product.price}}</span>
-                </h5>
-                <a v-bind:href="'/Products/Detail/' + product.id" class="btn btn-outline-dark btn-card">INFO</a>
-                <button v-bind:data-id="product.id" class="btn btn-dark btn-card" @@click="addToCart(product)">BUY</button>
-            </div>
+            <partial name="_ProductCardPartial" />
         </div>
     </div>
 </div>

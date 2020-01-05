@@ -1,0 +1,17 @@
+﻿<div class="ribbon" v-if="product.onSale === true"><span>SALE</span></div>
+<img class="card-img-top" v-bind:src="'https://localhost:5001/api/products/GameImageByName/' + product.photoUrl">
+
+<div class="card-body row justify-content-center align-items-start">
+    <h5 class="card-title text-center">{{product.name}}</h5>
+</div>
+<div class="card-body row justify-content-center align-items-center">
+    <h5 class="card-price" v-if="product.onSale === true">
+        <span style="text-decoration: line-through">€ {{formatPrice(product.price)}}</span>
+        <span>€ {{formatPrice(product.price - 10)}}</span>
+    </h5>
+    <h5 class="card-price" v-if="product.onSale === false">
+        <span>€ {{formatPrice(product.price)}}</span>
+    </h5>
+    <a v-bind:href="'/Products/Detail/' + product.id" class="btn btn-outline-dark btn-card">INFO</a>
+    <button v-bind:data-id="product.id" class="btn btn-dark btn-card" @@click="addToCart(product)">BUY</button>
+</div>
