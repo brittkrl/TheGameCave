@@ -2,55 +2,57 @@
 
 <partial name="_BackButton" />
 
-<div class="row justify-content-center">
-    <div class="col-md-4 justify-content-end">
-        <img src="https://localhost:5001/api/products/gameimagebyname/@Model.ProductDetail.PhotoUrl" alt="Image of the product" width="400" /><br />
-        <a asp-area="" asp-controller="ShoppingCart" asp-action="Index" class="btn btn-dark btn-lg">
-            <img src="https://localhost:5001/api/products/imagebyname/cart.png" />  Add To Cart
-        </a>
+<div id="app">
+    <div class="row justify-content-center" v-for="product in products" v-if="product.id == @Model.ProductDetail.Id">
+        <div class="col-md-4 justify-content-end">
+            <img v-bind:src="'https://localhost:5001/api/products/GameImageByName/' + product.photoUrl" alt="Image of the product" width="400" style="margin:10px" /><br />
+            <button v-bind:data-id="product.id" class="btn btn-dark btn-lg float-right" @@click="addToCart(product)"><img src="https://localhost:5001/api/products/imagebyname/cart.png" />  Add To Cart</button>
+        </div>
+        <div class="col-md-7">
+            <h2>{{product.name}}</h2>
 
-    </div>
-    <div class="col-md-7">
-        <h2>@Model.ProductDetail.Name</h2>
+            <h3 class="card-price" v-if="product.onSale === true">
+                <span style="text-decoration: line-through">€ {{formatPrice(product.price)}}</span>
+                <span>&nbsp;€ {{formatPrice(product.price - 10)}}</span>
+            </h3>
+            <h3 class="card-price" v-if="product.onSale === false">
+                <span>€ {{formatPrice(product.price)}}</span>
+            </h3>
 
-        <h3>
-            @if (Model.ProductDetail.OnSale == true)
-            {
-                <span style="text-decoration: line-through">€ @Model.ProductDetail.Price</span>
-                <span>&nbsp; € @(@Model.ProductDetail.Price - 10)</span>
-            }
-            else
-            {
-                <span>€ @Model.ProductDetail.Price </span>
-            }
-        </h3>
-        <p id="productDescription">@Model.ProductDetail.Description</p>
+            <p id="productDescription">@Html.Raw(Html.Encode(@Model.ProductDetail.Description)?.Replace("&#xA;", "<br />"))</p>
 
-        <table class="table">
-            <tr>
-                <th scope="row">Playing time</th>
-                <td>@Model.ProductDetail.PlayingTime minutes</td>
-            </tr>
-            <tr>
-                <th scope="row">Number of players</th>
-                <td>@Model.ProductDetail.NumberOfPlayers</td>
-            </tr>
-            <tr>
-                <th scope="row">Minimum age</th>
-                <td>@Model.ProductDetail.MinimumAge</td>
-            </tr>
-            <tr>
-                <th scope="row">Category</th>
-                <td>@Model.ProductDetail.CategoryName</td>
-            </tr>
-            <tr>
-                <th scope="row">Publisher</th>
-                <td>@Model.ProductDetail.PublisherName</td>
-            </tr>
-            <tr>
-                <th scope="row">Language</th>
-                <td>@Model.ProductDetail.Language</td>
-            </tr>
-        </table>
+            <table class="table">
+                <tr>
+                    <th scope="row">Playing time</th>
+                    <td>{{product.playingTime}} minutes</td>
+                </tr>
+                <tr>
+                    <th scope="row">Number of players</th>
+                    <td>{{product.numberOfPlayers}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Minimum age</th>
+                    <td>{{product.minimumAge}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Category</th>
+                    <td>{{product.categoryName}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Publisher</th>
+                    <td>{{product.publisherName}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Language</th>
+                    <td>{{product.language}}</td>
+                </tr>
+            </table>
+        </div>
     </div>
 </div>
+
+@section Scripts
+{
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="~/js/products.js"></script>
+}

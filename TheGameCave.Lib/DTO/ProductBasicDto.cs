@@ -14,5 +14,11 @@ namespace TheGameCave.Lib.DTO
         public string CategoryName { get; set; }
         public string ProductType { get; set; }
         public bool OnSale { get; set; }
+        public string PlayingTime { get; set; }
+        public string NumberOfPlayers { get; set; }
+        public int MinimumAge { get; set; }
+        public string Language { get; set; }
+        public string PublisherName { get; set; }
+
     }
 }
